@@ -1,0 +1,38 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/win.h
+sdkddkver.h
+-
+tchar.h
+-
+iostream
+-
+sstream
+-
+windows.h
+-
+
+../include/window.h
+win.h
+../include/win.h
+vector
+-
+
+D:/CodeField/cpp/d3d/src/winMain.cpp
+window.h
+D:/CodeField/cpp/d3d/src/window.h
+
+D:/CodeField/cpp/d3d/src/window.cpp
+window.h
+D:/CodeField/cpp/d3d/src/window.h
+tchar.h
+-
+iostream
+-
+

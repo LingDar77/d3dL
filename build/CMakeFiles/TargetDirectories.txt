@@ -1,0 +1,3 @@
+D:/CodeField/cpp/d3d/build/CMakeFiles/compile.dir
+D:/CodeField/cpp/d3d/build/CMakeFiles/edit_cache.dir
+D:/CodeField/cpp/d3d/build/CMakeFiles/rebuild_cache.dir
