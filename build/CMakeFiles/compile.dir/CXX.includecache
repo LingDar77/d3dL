@@ -6,6 +6,14 @@
 
 #IncludeRegexTransform: 
 
+../include/timer.h
+win.h
+../include/win.h
+chrono
+-
+sstream
+-
+
 ../include/win.h
 sdkddkver.h
 -
@@ -27,6 +35,14 @@ bitset
 -
 string
 -
+timer.h
+../include/timer.h
+optional
+-
+
+D:/CodeField/cpp/d3d/src/winMain.cpp
+window.h
+D:/CodeField/cpp/d3d/src/window.h
 
 D:/CodeField/cpp/d3d/src/window.cpp
 window.h

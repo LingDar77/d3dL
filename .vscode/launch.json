@@ -14,7 +14,7 @@
             "cwd": "${workspaceFolder}",
             "environment": [],
             "MIMode": "gdb",
-            "miDebuggerPath": "D:\\MinGW\\bin\\gdb.exe",
+            "miDebuggerPath": "D:\\TDM-GCC-64\\bin\\gdb.exe",
             "setupCommands": [
                 {
                     "description": "为 gdb 启用整齐打印",

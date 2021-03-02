@@ -4,7 +4,7 @@
 
 
 
-#define NOMINMAX;
+#define NOMINMAX
 
 
 

@@ -15,7 +15,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "D:/MinGW/bin/addr2line.exe"
+			"value" : "D:/TDM-GCC-64/bin/addr2line.exe"
 		},
 		{
 			"name" : "CMAKE_AR",
@@ -31,7 +31,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "D:/MinGW/bin/ar.exe"
+			"value" : "D:/TDM-GCC-64/bin/ar.exe"
 		},
 		{
 			"name" : "CMAKE_BUILD_TYPE",
@@ -159,7 +159,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "D:/MinGW/bin/g++.exe"
+			"value" : "D:/TDM-GCC-64/bin/x86_64-w64-mingw32-g++.exe"
 		},
 		{
 			"name" : "CMAKE_CXX_COMPILER_AR",
@@ -175,7 +175,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "D:/MinGW/bin/gcc-ar.exe"
+			"value" : "D:/TDM-GCC-64/bin/x86_64-w64-mingw32-gcc-ar.exe"
 		},
 		{
 			"name" : "CMAKE_CXX_COMPILER_RANLIB",
@@ -191,7 +191,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "D:/MinGW/bin/gcc-ranlib.exe"
+			"value" : "D:/TDM-GCC-64/bin/x86_64-w64-mingw32-gcc-ranlib.exe"
 		},
 		{
 			"name" : "CMAKE_CXX_FLAGS",
@@ -303,7 +303,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "D:/MinGW/bin/gcc.exe"
+			"value" : "D:/TDM-GCC-64/bin/x86_64-w64-mingw32-gcc.exe"
 		},
 		{
 			"name" : "CMAKE_C_COMPILER_AR",
@@ -319,7 +319,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "D:/MinGW/bin/gcc-ar.exe"
+			"value" : "D:/TDM-GCC-64/bin/x86_64-w64-mingw32-gcc-ar.exe"
 		},
 		{
 			"name" : "CMAKE_C_COMPILER_RANLIB",
@@ -335,7 +335,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "D:/MinGW/bin/gcc-ranlib.exe"
+			"value" : "D:/TDM-GCC-64/bin/x86_64-w64-mingw32-gcc-ranlib.exe"
 		},
 		{
 			"name" : "CMAKE_C_FLAGS",
@@ -447,7 +447,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "D:/MinGW/bin/dlltool.exe"
+			"value" : "D:/TDM-GCC-64/bin/dlltool.exe"
 		},
 		{
 			"name" : "CMAKE_EDIT_COMMAND",
@@ -675,7 +675,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "D:/MinGW/bin/ld.exe"
+			"value" : "D:/TDM-GCC-64/bin/ld.exe"
 		},
 		{
 			"name" : "CMAKE_MAKE_PROGRAM",
@@ -691,7 +691,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "D:/MinGW/bin/mingw32-make.exe"
+			"value" : "D:/TDM-GCC-64/bin/mingw32-make.exe"
 		},
 		{
 			"name" : "CMAKE_MODULE_LINKER_FLAGS",
@@ -787,7 +787,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "D:/MinGW/bin/nm.exe"
+			"value" : "D:/TDM-GCC-64/bin/nm.exe"
 		},
 		{
 			"name" : "CMAKE_NUMBER_OF_MAKEFILES",
@@ -815,7 +815,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "D:/MinGW/bin/objcopy.exe"
+			"value" : "D:/TDM-GCC-64/bin/objcopy.exe"
 		},
 		{
 			"name" : "CMAKE_OBJDUMP",
@@ -831,7 +831,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "D:/MinGW/bin/objdump.exe"
+			"value" : "D:/TDM-GCC-64/bin/objdump.exe"
 		},
 		{
 			"name" : "CMAKE_PLATFORM_INFO_INITIALIZED",
@@ -895,7 +895,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "D:/MinGW/bin/ranlib.exe"
+			"value" : "D:/TDM-GCC-64/bin/ranlib.exe"
 		},
 		{
 			"name" : "CMAKE_RC_COMPILER",
@@ -911,7 +911,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "D:/MinGW/bin/windres.exe"
+			"value" : "D:/TDM-GCC-64/bin/windres.exe"
 		},
 		{
 			"name" : "CMAKE_RC_COMPILER_WORKS",
@@ -1019,7 +1019,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "D:/MinGW/bin/readelf.exe"
+			"value" : "D:/TDM-GCC-64/bin/readelf.exe"
 		},
 		{
 			"name" : "CMAKE_ROOT",
@@ -1239,7 +1239,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "D:/MinGW/bin/strip.exe"
+			"value" : "D:/TDM-GCC-64/bin/strip.exe"
 		},
 		{
 			"name" : "CMAKE_VERBOSE_MAKEFILE",

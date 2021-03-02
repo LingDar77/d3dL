@@ -14,6 +14,7 @@
 		"commands" : 
 		[
 			"add_executable",
+			"add_compile_options",
 			"include_directories"
 		],
 		"files" : 
@@ -28,11 +29,17 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 8,
+				"line" : 9,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
+				"file" : 0,
+				"line" : 8,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
 				"file" : 0,
 				"line" : 5,
 				"parent" : 0
@@ -46,12 +53,16 @@
 			[
 				{
 					"fragment" : "-O3 -DNDEBUG"
+				},
+				{
+					"backtrace" : 2,
+					"fragment" : "-std=c++2a"
 				}
 			],
 			"includes" : 
 			[
 				{
-					"backtrace" : 2,
+					"backtrace" : 3,
 					"path" : "D:/CodeField/cpp/d3d/include"
 				}
 			],

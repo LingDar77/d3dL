@@ -6,21 +6,16 @@ int CALLBACK WinMain(
     int nCmdshow)
 {
     ShowWindow(FindWindow("ConsoleWindowClass", NULL), SW_HIDE);
-    window w1(hInstance),w2(hInstance);
-    winClass c1(hInstance,"d3d","resource\\icon.ico");
-    w1.createWindow(&c1,100, 100, 640, 480, "a window");
-    w1.createWindow(&c1,0, 100, 666, 555, "two window");
+    window w1(hInstance);
+    winClass c1(hInstance, "d3d", "resource\\icon.ico");
+    w1.createWindow(&c1, 100, 100, 640, 480, "a window");
+    w1.createWindow(&c1, 0, 100, 666, 555, "two window");
 
-    MSG msg;
-    BOOL gResult;
-    while ((gResult = GetMessage(&msg, nullptr, 0, 0)) > 0)
-    {
-        TranslateMessage(&msg);
-        DispatchMessage(&msg);
+    while(1){
+        if(const auto ecode =w1.processer())
+            return *ecode;
+        w1.doFrame();
     }
-    if (gResult == -1)
-        return -1;
-    return msg.wParam;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////

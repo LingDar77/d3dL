@@ -4,31 +4,32 @@
 #include <vector>
 #include <bitset>
 #include <string>
+#include "timer.h"
+#include <optional>
 typedef std::bitset<254> keyType; //all keys provided only have 254 kinds, every set express its state
 class window;
 LRESULT CALLBACK HandleMsgSetup(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam) noexcept;
 LRESULT CALLBACK HandleMsgThunk(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam) noexcept;
-void kbdHandler(keyType& key);
-class keyBoard
+void kbdHandler(keyType &key);
+class interact
 {
 public:
-    keyBoard(void (*f)(keyType&)):function(f){}
-    keyBoard():function(&kbdHandler){}
-    ~keyBoard(){
+    interact(void (*f)(keyType &)) : function(f) {}
+    interact() : function(&kbdHandler) {}
+    ~interact()
+    {
     }
     void keyDown(unsigned code, HWND hWnd)
     {
         // if(code!=VK_OEM_1&&code!=VK_OEM_2&&code!=VK_OEM_PERIOD&&code!=VK_OEM_COMMA&&code!=VK_OEM_MINUS&&code!=VK_OEM_PLUS)
         // std::cout <<"In window "<< hWnd<< " key:"<<code<<" was pressed" << std::endl;
         keySet(code, 1);
-
     }
     void keyUp(unsigned code, HWND hWnd)
     {
         // if(code!=VK_OEM_1&&code!=VK_OEM_2&&code!=VK_OEM_PERIOD&&code!=VK_OEM_COMMA&&code!=VK_OEM_MINUS&&code!=VK_OEM_PLUS)
         // std::cout <<"In window "<< hWnd<< " key:"<<code<<" was released" << std::endl;
         keySet(code, 0);
-
     }
     void SysUp(unsigned code, HWND hWnd)
     {
@@ -41,6 +42,17 @@ public:
         //finally only alt is considered as a system key
         // std::cout<<code<<std::endl;
         keySet(code, 1);
+    }
+    void mouseLClick(HWND hWnd, WPARAM wParam, LPARAM lParam)
+    {
+    }
+    void mouseRClick(HWND hWnd, WPARAM wParam, LPARAM lParam)
+    {
+    }
+    void mouseMove(HWND hWnd, WPARAM wParam, LPARAM lParam)
+    {
+        POINTS pts = MAKEPOINTS(lParam);
+        // std::cout << pts.x << " " << pts.y << std::endl;
     }
     bool isKeyDown(unsigned code)
     {
@@ -57,8 +69,8 @@ public:
     };
 
 private:
-    keyType key={0};
-    void (*function)(keyType&);
+    keyType key = {0};
+    void (*function)(keyType &);
 };
 class mouse
 {
@@ -110,9 +122,20 @@ class window
 private:
     HINSTANCE hInstance;
     std::vector<HWND> h;
-    keyBoard kbd;
+    std::vector<timer *> ts;
+    interact kbd;
 
 public:
+    void doFrame()
+    {
+        for (auto &i : ts)
+        {
+            std::stringstream ss;
+            ss<<i->peek();
+            SetWindowText(i->hWnd,_T(ss.str().c_str()));
+        }
+    }
+    std::optional<int> processer();
     HWND getHwnd(size_t t)
     {
         if (t >= h.size())
@@ -134,11 +157,14 @@ public:
                                    WS_CAPTION | WS_SYSMENU | WS_MINIMIZEBOX | WS_MAXIMIZEBOX,
                                    X, Y, wh, ht, nullptr, nullptr, hInstance, this);
         h.push_back(hWnd);
+        ts.push_back(new timer{hWnd});
         ShowWindow(hWnd, SW_SHOW);
     }
     window(HINSTANCE h) : hInstance(h){};
     ~window() noexcept
     {
+        for (auto &i : ts)
+            delete i;
         for (auto &i : h)
             DestroyWindow(i);
     }

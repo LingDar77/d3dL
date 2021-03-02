@@ -4,6 +4,7 @@
 #include <tchar.h>
 #include <set>
 #include <iostream>
+
 LRESULT CALLBACK HandleMsgThunk(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam) noexcept
 {
     auto p = reinterpret_cast<window *>(GetWindowLongPtr(hWnd, GWLP_USERDATA));
@@ -12,11 +13,15 @@ LRESULT CALLBACK HandleMsgThunk(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lPara
     case WM_CLOSE:
     {
 
-        DestroyWindow(hWnd);
         // p->createWindow(100,100,480,320,"you were tricked!");
         auto cnt = p->searchHwnd(hWnd);
         if (cnt != p->h.size())
+        {
+            DestroyWindow(hWnd);
             p->h.erase(p->h.begin() + cnt);
+            delete p->ts[cnt];
+            p->ts.erase(p->ts.begin() + cnt);
+        }
         if (p->h.empty())
         {
             PostQuitMessage(0);
@@ -43,6 +48,11 @@ LRESULT CALLBACK HandleMsgThunk(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lPara
         p->kbd.keyUp(static_cast<unsigned char>(wParam), hWnd);
         break;
     }
+    case WM_MOUSEMOVE:
+    {
+        p->kbd.mouseMove(hWnd, wParam, lParam);
+        break;
+    }
     }
     return DefWindowProc(hWnd, msg, wParam, lParam);
 }
@@ -65,8 +75,9 @@ public:
 class mForward : move
 {
     keyType key{"00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000001100000000000000000"};
-       
-        public : mForward(keyType &k) : key(k)
+
+public:
+    mForward(keyType &k) : key(k)
     {
     }
     mForward(){};
@@ -82,19 +93,26 @@ void kbdHandler(keyType &key)
 {
     static keyType preKey;
     static mForward m;
-    if (key[VK_MENU])
-        std::cout << "Alt was pressed" << std::endl;
-    if (preKey[VK_MENU] && key[VK_MENU])
-        std::cout << "Alt was pressing" << std::endl;
-    if (!key[VK_MENU] && preKey[VK_MENU])
-        std::cout << "Alt was released" << std::endl;
 
     if (key[VK_CONTROL] && key['A'] && key[VK_MENU])
-        std::cout << "Ctrl+Alt+A was pressed" << std::endl;
-    if (!key[VK_CONTROL] && !key['A'] && !key[VK_MENU])
     {
         m.carry(key);
-        std::cout << "Ctrl+Alt+A was released" << std::endl;
+        std::cout << "Ctrl+Alt+A was pressed" << std::endl;
     }
+
     preKey = key;
+}
+std::optional<int> window::processer()
+{
+
+    MSG msg;
+    while (PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE))
+    {
+        if (msg.message == WM_QUIT)
+            return msg.wParam;
+        TranslateMessage(&msg);
+        DispatchMessage(&msg);
+    }
+
+    return {};
 }
