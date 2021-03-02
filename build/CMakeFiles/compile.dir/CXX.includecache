@@ -23,15 +23,17 @@ win.h
 ../include/win.h
 vector
 -
-
-D:/CodeField/cpp/d3d/src/winMain.cpp
-window.h
-D:/CodeField/cpp/d3d/src/window.h
+bitset
+-
+string
+-
 
 D:/CodeField/cpp/d3d/src/window.cpp
 window.h
 D:/CodeField/cpp/d3d/src/window.h
 tchar.h
+-
+set
 -
 iostream
 -

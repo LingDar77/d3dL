@@ -40,6 +40,7 @@
         "streambuf": "cpp",
         "typeinfo": "cpp",
         "functional": "cpp",
-        "cstring": "cpp"
+        "cstring": "cpp",
+        "bitset": "cpp"
     }
 }
