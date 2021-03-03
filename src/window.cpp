@@ -4,6 +4,8 @@
 #include <tchar.h>
 #include <set>
 #include <iostream>
+#include "resource.h"
+
 
 LRESULT CALLBACK HandleMsgThunk(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam) noexcept
 {
@@ -83,30 +85,23 @@ winClass::winClass(HINSTANCE h, char *name, char *icon) : hInstance(h), classNam
     wc.hInstance = hInstance;
     wc.lpszClassName = className.c_str();
     wc.style = CS_OWNDC;
-    HICON hIconSm = (HICON)::LoadImage(
-        hInstance,
-        TEXT(ICON.c_str()),
-        IMAGE_ICON,
-        16, 16,
-        LR_DEFAULTCOLOR | LR_CREATEDIBSECTION | LR_LOADFROMFILE);
-    HICON hIcon = (HICON)::LoadImage(
-        hInstance,
-        TEXT(ICON.c_str()),
-        IMAGE_ICON,
-        32, 32,
-        LR_DEFAULTCOLOR | LR_CREATEDIBSECTION | LR_LOADFROMFILE);
-    wc.hIconSm = hIconSm;
-    wc.hIcon = hIcon;
+    wc.hIconSm = static_cast<HICON>(LoadImage(h,MAKEINTRESOURCE( IDI_ICON1 ),IMAGE_ICON,16,16,0));
+    wc.hIcon = static_cast<HICON>(LoadImage(h,MAKEINTRESOURCE( IDI_ICON1 ),IMAGE_ICON,32,32,0));
     wc.lpfnWndProc = HandleMsgSetup;
     RegisterClassEx(&wc);
 }
 void window::doFrame()
 {
-    for (auto &i : ts)
+    
+    for (unsigned cnt=0;cnt<gr.size();++cnt)
     {
         std::stringstream ss;
-        ss << i->peek();
+        ss << ts[cnt]->peek();
+        gr[cnt]->endFrame();
+        const float c=sin(ts[cnt]->peek()); 
+        gr[cnt]->clearBuffer(c,c*c,c/2);
         // SetWindowText(i->hWnd,_T(ss.str().c_str()));
+        
     }
 }
 void window::createWindow(const winClass *wc, unsigned X, unsigned Y, unsigned wh, unsigned ht, char *name)

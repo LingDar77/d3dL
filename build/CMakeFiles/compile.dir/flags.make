@@ -6,5 +6,5 @@ CXX_DEFINES =
 
 CXX_INCLUDES = @CMakeFiles/compile.dir/includes_CXX.rsp
 
-CXX_FLAGS = -O2 -g -DNDEBUG -std=c++2a
+CXX_FLAGS = -O3 -DNDEBUG -std=c++2a
 

@@ -11,6 +11,6 @@ add_compile_options(-std=c++2a)
 
 add_executable(compile
                ${SrcFiles}
-                #resource/resource.o
+                resource/resource.o
                 )#设置可执行文件的名称，make之后bin目录下出现test.exe
 target_link_libraries(compile d3d11.lib)

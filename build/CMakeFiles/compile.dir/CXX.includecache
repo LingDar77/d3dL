@@ -22,6 +22,8 @@ string
 keyMap.h
 ../include/keyMap.h
 
+../include/resource.h
+
 ../include/timer.h
 win.h
 ../include/win.h
@@ -43,7 +45,7 @@ windows.h
 -
 wininet.h
 -
-shlobj.h
+cmath
 -
 
 ../include/window.h
@@ -64,7 +66,15 @@ move.h
 graphics.h
 ../include/graphics.h
 
-D:/CodeField/cpp/d3d/src/graphics.cpp
-graphics.h
-D:/CodeField/cpp/d3d/src/graphics.h
+D:/CodeField/cpp/d3d/src/window.cpp
+window.h
+D:/CodeField/cpp/d3d/src/window.h
+tchar.h
+-
+set
+-
+iostream
+-
+resource.h
+D:/CodeField/cpp/d3d/src/resource.h
 

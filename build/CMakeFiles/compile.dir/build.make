@@ -139,12 +139,14 @@ compile_OBJECTS = \
 "CMakeFiles/compile.dir/src/window.cpp.obj"
 
 # External object files for target compile
-compile_EXTERNAL_OBJECTS =
+compile_EXTERNAL_OBJECTS = \
+"D:/CodeField/cpp/d3d/resource/resource.o"
 
 ../bin/compile.exe: CMakeFiles/compile.dir/src/graphics.cpp.obj
 ../bin/compile.exe: CMakeFiles/compile.dir/src/timer.cpp.obj
 ../bin/compile.exe: CMakeFiles/compile.dir/src/winMain.cpp.obj
 ../bin/compile.exe: CMakeFiles/compile.dir/src/window.cpp.obj
+../bin/compile.exe: ../resource/resource.o
 ../bin/compile.exe: CMakeFiles/compile.dir/build.make
 ../bin/compile.exe: CMakeFiles/compile.dir/linklibs.rsp
 ../bin/compile.exe: CMakeFiles/compile.dir/objects1.rsp

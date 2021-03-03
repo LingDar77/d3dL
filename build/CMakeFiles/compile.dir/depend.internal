@@ -25,6 +25,7 @@ CMakeFiles/compile.dir/src/window.cpp.obj
  ../include/graphics.h
  ../include/keyMap.h
  ../include/move.h
+ ../include/resource.h
  ../include/timer.h
  ../include/win.h
  ../include/window.h

@@ -24,6 +24,7 @@ CMakeFiles/compile.dir/src/winMain.cpp.obj: ../src/winMain.cpp
 CMakeFiles/compile.dir/src/window.cpp.obj: ../include/graphics.h
 CMakeFiles/compile.dir/src/window.cpp.obj: ../include/keyMap.h
 CMakeFiles/compile.dir/src/window.cpp.obj: ../include/move.h
+CMakeFiles/compile.dir/src/window.cpp.obj: ../include/resource.h
 CMakeFiles/compile.dir/src/window.cpp.obj: ../include/timer.h
 CMakeFiles/compile.dir/src/window.cpp.obj: ../include/win.h
 CMakeFiles/compile.dir/src/window.cpp.obj: ../include/window.h

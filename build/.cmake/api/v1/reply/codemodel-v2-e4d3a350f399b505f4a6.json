@@ -18,7 +18,7 @@
 					]
 				}
 			],
-			"name" : "RelWithDebInfo",
+			"name" : "Release",
 			"projects" : 
 			[
 				{
@@ -38,7 +38,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "compile::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-compile-RelWithDebInfo-3490762e68d26203c6a3.json",
+					"jsonFile" : "target-compile-Release-81919307d02456842cc4.json",
 					"name" : "compile",
 					"projectIndex" : 0
 				}
