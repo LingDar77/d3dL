@@ -3,6 +3,8 @@ file(REMOVE_RECURSE
   "../bin/compile.exe.manifest"
   "../bin/compile.pdb"
   "../bin/libcompile.dll.a"
+  "CMakeFiles/compile.dir/src/graphics.cpp.obj"
+  "CMakeFiles/compile.dir/src/timer.cpp.obj"
   "CMakeFiles/compile.dir/src/winMain.cpp.obj"
   "CMakeFiles/compile.dir/src/window.cpp.obj"
 )

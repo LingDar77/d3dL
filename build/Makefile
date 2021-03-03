@@ -141,6 +141,60 @@ compile/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\compile.dir\build.make CMakeFiles/compile.dir/build
 .PHONY : compile/fast
 
+src/graphics.obj: src/graphics.cpp.obj
+
+.PHONY : src/graphics.obj
+
+# target to build an object file
+src/graphics.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\compile.dir\build.make CMakeFiles/compile.dir/src/graphics.cpp.obj
+.PHONY : src/graphics.cpp.obj
+
+src/graphics.i: src/graphics.cpp.i
+
+.PHONY : src/graphics.i
+
+# target to preprocess a source file
+src/graphics.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\compile.dir\build.make CMakeFiles/compile.dir/src/graphics.cpp.i
+.PHONY : src/graphics.cpp.i
+
+src/graphics.s: src/graphics.cpp.s
+
+.PHONY : src/graphics.s
+
+# target to generate assembly for a file
+src/graphics.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\compile.dir\build.make CMakeFiles/compile.dir/src/graphics.cpp.s
+.PHONY : src/graphics.cpp.s
+
+src/timer.obj: src/timer.cpp.obj
+
+.PHONY : src/timer.obj
+
+# target to build an object file
+src/timer.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\compile.dir\build.make CMakeFiles/compile.dir/src/timer.cpp.obj
+.PHONY : src/timer.cpp.obj
+
+src/timer.i: src/timer.cpp.i
+
+.PHONY : src/timer.i
+
+# target to preprocess a source file
+src/timer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\compile.dir\build.make CMakeFiles/compile.dir/src/timer.cpp.i
+.PHONY : src/timer.cpp.i
+
+src/timer.s: src/timer.cpp.s
+
+.PHONY : src/timer.s
+
+# target to generate assembly for a file
+src/timer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\compile.dir\build.make CMakeFiles/compile.dir/src/timer.cpp.s
+.PHONY : src/timer.cpp.s
+
 src/winMain.obj: src/winMain.cpp.obj
 
 .PHONY : src/winMain.obj
@@ -204,6 +258,12 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... compile
+	@echo ... src/graphics.obj
+	@echo ... src/graphics.i
+	@echo ... src/graphics.s
+	@echo ... src/timer.obj
+	@echo ... src/timer.i
+	@echo ... src/timer.s
 	@echo ... src/winMain.obj
 	@echo ... src/winMain.i
 	@echo ... src/winMain.s

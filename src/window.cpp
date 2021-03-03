@@ -12,20 +12,8 @@ LRESULT CALLBACK HandleMsgThunk(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lPara
     {
     case WM_CLOSE:
     {
-
         // p->createWindow(100,100,480,320,"you were tricked!");
-        auto cnt = p->searchHwnd(hWnd);
-        if (cnt != p->h.size())
-        {
-            DestroyWindow(hWnd);
-            p->h.erase(p->h.begin() + cnt);
-            delete p->ts[cnt];
-            p->ts.erase(p->ts.begin() + cnt);
-        }
-        if (p->h.empty())
-        {
-            PostQuitMessage(0);
-        }
+        p->destroyWindow(hWnd);
         return 0;
     }
     case WM_SYSKEYDOWN:
@@ -67,48 +55,6 @@ LRESULT CALLBACK HandleMsgSetup(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lPara
     }
     return DefWindowProc(hWnd, msg, wParam, lParam);
 }
-class move
-{
-private:
-    void forward()
-    {
-        std::cout << "you are moving forward" << std::endl;
-    }
-    void back()
-    {
-        std::cout << "you are moving back" << std::endl;
-    }
-    void left()
-    {
-        std::cout << "you are moving left" << std::endl;
-    }
-    void right()
-    {
-        std::cout << "you are moving right" << std::endl;
-    }
-
-public:
-    virtual void carry(keyType key)
-    {
-        static keyMap map;
-        if (key == map.getKey("W"))
-        {
-            forward();
-        }
-        if (key == map.getKey("A"))
-        {
-            left();
-        }
-        if (key == map.getKey("S"))
-        {
-            back();
-        }
-        if (key == map.getKey("D"))
-        {
-            right();
-        }
-    };
-};
 void kbdHandler(keyType &key)
 {
     static keyType preKey;
@@ -170,5 +116,23 @@ void window::createWindow(const winClass *wc, unsigned X, unsigned Y, unsigned w
                                X, Y, wh, ht, nullptr, nullptr, hInstance, this);
     h.push_back(hWnd);
     ts.push_back(new timer{hWnd});
+    gr.push_back(new graphics{hWnd});
     ShowWindow(hWnd, SW_SHOW);
+}
+void window::destroyWindow(HWND hWnd)
+{
+    auto cnt = searchHwnd(hWnd);
+    if (cnt != h.size())
+    {
+        delete gr[cnt];
+        gr.erase(gr.begin() + cnt);
+        DestroyWindow(hWnd);
+        h.erase(h.begin() + cnt);
+        delete ts[cnt];
+        ts.erase(ts.begin() + cnt);
+    }
+    if (h.empty())
+    {
+        PostQuitMessage(0);
+    }
 }

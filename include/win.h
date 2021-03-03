@@ -18,4 +18,6 @@
 #include <iostream>
 #include <sstream>
 #include <windows.h>
+#include <wininet.h>
+#include <shlobj.h>
 #endif /* F2DDE3B6_E57D_479F_939A_FD3666BD13C5 */

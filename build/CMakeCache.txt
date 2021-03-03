@@ -241,6 +241,9 @@ Cmake_test_BINARY_DIR:STATIC=D:/CodeField/cpp/d3d/build
 //Value Computed by CMake
 Cmake_test_SOURCE_DIR:STATIC=D:/CodeField/cpp/d3d
 
+//The directory containing a CMake configuration file for D3D11.
+D3D11_DIR:PATH=D3D11_DIR-NOTFOUND
+
 
 ########################
 # INTERNAL cache entries

@@ -6,7 +6,8 @@
 #include <string>
 #include "timer.h"
 #include <optional>
-#include "keyMap.h"
+#include "move.h"
+#include "graphics.h"
 class window;
 LRESULT CALLBACK HandleMsgSetup(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam) noexcept;
 LRESULT CALLBACK HandleMsgThunk(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam) noexcept;
@@ -16,7 +17,7 @@ class interact
 public:
     interact(void (*f)(keyType &)) : function(f) {}
     interact() : function(&kbdHandler) {}
-    ~interact()
+    ~interact() noexcept
     {
     }
     void keyDown(unsigned code, HWND hWnd)
@@ -72,9 +73,7 @@ private:
     keyType key = {0};
     void (*function)(keyType &);
 };
-class mouse
-{
-};
+
 class winClass
 {
     friend class window;
@@ -91,6 +90,7 @@ public:
     };
 };
 
+class graphics;
 class window
 {
     friend class winClass;
@@ -100,6 +100,7 @@ private:
     HINSTANCE hInstance;
     std::vector<HWND> h;
     std::vector<timer *> ts;
+    std::vector<graphics *> gr;
     interact kbd;
 
 public:
@@ -120,12 +121,15 @@ public:
                 return i;
         return i;
     }
+    void destroyWindow(HWND hWnd);
     void createWindow(const winClass *wc, unsigned X, unsigned Y, unsigned wh, unsigned ht, char *name);
     window(HINSTANCE h) : hInstance(h){};
     ~window() noexcept
     {
         for (auto &i : ts)
             delete i; //destroy timers
+        for (auto &i : gr)
+            delete i;
         for (auto &i : h)
             DestroyWindow(i); //destroy windows
     }

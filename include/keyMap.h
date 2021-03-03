@@ -14,14 +14,20 @@ class keyMap
     keys data;
 
 public:
-    keyMap() : data({{"W", keyW}, {"A", keyA}, {"S", keyS}, {"D", keyD}})
+    keyMap() : data({{"Forward", keyW}, {"Left", keyA}, {"Back", keyS}, {"Right", keyD}})
     {
     }
-    keyMap(std::initializer_list<keys> il) {}
-    keyType getKey(std::string s){
-        auto buf=data.find(s);
-        if(buf==data.end())   
-            throw std::runtime_error("do not find keyType!");
+    keyMap(std::initializer_list<keys> il)
+    {
+        //todo
+    }
+    ~keyMap()noexcept{}
+    void operator==(const keyMap&) = delete;
+    keyType getKey(const std::string s)
+    {
+        auto buf = data.find(s);
+        if (buf == data.end())
+            return keyType{"1"};
         return buf->second;
     }
 };

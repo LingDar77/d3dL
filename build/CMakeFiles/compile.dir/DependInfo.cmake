@@ -4,6 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "D:/CodeField/cpp/d3d/src/graphics.cpp" "D:/CodeField/cpp/d3d/build/CMakeFiles/compile.dir/src/graphics.cpp.obj"
+  "D:/CodeField/cpp/d3d/src/timer.cpp" "D:/CodeField/cpp/d3d/build/CMakeFiles/compile.dir/src/timer.cpp.obj"
   "D:/CodeField/cpp/d3d/src/winMain.cpp" "D:/CodeField/cpp/d3d/build/CMakeFiles/compile.dir/src/winMain.cpp.obj"
   "D:/CodeField/cpp/d3d/src/window.cpp" "D:/CodeField/cpp/d3d/build/CMakeFiles/compile.dir/src/window.cpp.obj"
   )

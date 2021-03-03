@@ -13,23 +13,15 @@ private:
     HWND hWnd;
 
 public:
-    ~timer()
+    ~timer() noexcept
     {
         std::cout << "timer：" << this << " destroyed" << std::endl;
     }
     timer(HWND h) : last(last = std::chrono::steady_clock::now()), hWnd(h)
     {
     }
-    float mark()
-    {
-        const auto old = last;
-        last = std::chrono::steady_clock::now();
-        const std::chrono::duration<float> t = last - old;
-        return t.count();
-    }
-    float peek() const
-    {
-        return std::chrono::duration<float>(std::chrono::steady_clock::now() - last).count();
-    }
+    void operator==(const timer &) = delete;
+    float mark();
+    float peek() const;
 };
 #endif /* CADE523D_E26E_4A14_8F95_A1991A806AAF */

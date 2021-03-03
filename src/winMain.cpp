@@ -10,7 +10,6 @@ int CALLBACK WinMain(
     winClass c1(hInstance, (char*)"d3d", (char*)"resource\\icon.ico");
     w1.createWindow(&c1, 100, 100, 640, 480, (char*)"a window");
     // w1.createWindow(&c1, 0, 100, 666, 555, (char*)"two window");
-
     while(1){
         if(const auto ecode =w1.processer())
             return *ecode;

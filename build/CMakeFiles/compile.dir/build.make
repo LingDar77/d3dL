@@ -75,10 +75,38 @@ include CMakeFiles/compile.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/compile.dir/flags.make
 
+CMakeFiles/compile.dir/src/graphics.cpp.obj: CMakeFiles/compile.dir/flags.make
+CMakeFiles/compile.dir/src/graphics.cpp.obj: CMakeFiles/compile.dir/includes_CXX.rsp
+CMakeFiles/compile.dir/src/graphics.cpp.obj: ../src/graphics.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\CodeField\cpp\d3d\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/compile.dir/src/graphics.cpp.obj"
+	g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\compile.dir\src\graphics.cpp.obj -c D:\CodeField\cpp\d3d\src\graphics.cpp
+
+CMakeFiles/compile.dir/src/graphics.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/compile.dir/src/graphics.cpp.i"
+	g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\CodeField\cpp\d3d\src\graphics.cpp > CMakeFiles\compile.dir\src\graphics.cpp.i
+
+CMakeFiles/compile.dir/src/graphics.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/compile.dir/src/graphics.cpp.s"
+	g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\CodeField\cpp\d3d\src\graphics.cpp -o CMakeFiles\compile.dir\src\graphics.cpp.s
+
+CMakeFiles/compile.dir/src/timer.cpp.obj: CMakeFiles/compile.dir/flags.make
+CMakeFiles/compile.dir/src/timer.cpp.obj: CMakeFiles/compile.dir/includes_CXX.rsp
+CMakeFiles/compile.dir/src/timer.cpp.obj: ../src/timer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\CodeField\cpp\d3d\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/compile.dir/src/timer.cpp.obj"
+	g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\compile.dir\src\timer.cpp.obj -c D:\CodeField\cpp\d3d\src\timer.cpp
+
+CMakeFiles/compile.dir/src/timer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/compile.dir/src/timer.cpp.i"
+	g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\CodeField\cpp\d3d\src\timer.cpp > CMakeFiles\compile.dir\src\timer.cpp.i
+
+CMakeFiles/compile.dir/src/timer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/compile.dir/src/timer.cpp.s"
+	g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\CodeField\cpp\d3d\src\timer.cpp -o CMakeFiles\compile.dir\src\timer.cpp.s
+
 CMakeFiles/compile.dir/src/winMain.cpp.obj: CMakeFiles/compile.dir/flags.make
 CMakeFiles/compile.dir/src/winMain.cpp.obj: CMakeFiles/compile.dir/includes_CXX.rsp
 CMakeFiles/compile.dir/src/winMain.cpp.obj: ../src/winMain.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\CodeField\cpp\d3d\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/compile.dir/src/winMain.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\CodeField\cpp\d3d\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/compile.dir/src/winMain.cpp.obj"
 	g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\compile.dir\src\winMain.cpp.obj -c D:\CodeField\cpp\d3d\src\winMain.cpp
 
 CMakeFiles/compile.dir/src/winMain.cpp.i: cmake_force
@@ -92,7 +120,7 @@ CMakeFiles/compile.dir/src/winMain.cpp.s: cmake_force
 CMakeFiles/compile.dir/src/window.cpp.obj: CMakeFiles/compile.dir/flags.make
 CMakeFiles/compile.dir/src/window.cpp.obj: CMakeFiles/compile.dir/includes_CXX.rsp
 CMakeFiles/compile.dir/src/window.cpp.obj: ../src/window.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\CodeField\cpp\d3d\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/compile.dir/src/window.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\CodeField\cpp\d3d\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/compile.dir/src/window.cpp.obj"
 	g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\compile.dir\src\window.cpp.obj -c D:\CodeField\cpp\d3d\src\window.cpp
 
 CMakeFiles/compile.dir/src/window.cpp.i: cmake_force
@@ -105,19 +133,23 @@ CMakeFiles/compile.dir/src/window.cpp.s: cmake_force
 
 # Object files for target compile
 compile_OBJECTS = \
+"CMakeFiles/compile.dir/src/graphics.cpp.obj" \
+"CMakeFiles/compile.dir/src/timer.cpp.obj" \
 "CMakeFiles/compile.dir/src/winMain.cpp.obj" \
 "CMakeFiles/compile.dir/src/window.cpp.obj"
 
 # External object files for target compile
 compile_EXTERNAL_OBJECTS =
 
+../bin/compile.exe: CMakeFiles/compile.dir/src/graphics.cpp.obj
+../bin/compile.exe: CMakeFiles/compile.dir/src/timer.cpp.obj
 ../bin/compile.exe: CMakeFiles/compile.dir/src/winMain.cpp.obj
 ../bin/compile.exe: CMakeFiles/compile.dir/src/window.cpp.obj
 ../bin/compile.exe: CMakeFiles/compile.dir/build.make
 ../bin/compile.exe: CMakeFiles/compile.dir/linklibs.rsp
 ../bin/compile.exe: CMakeFiles/compile.dir/objects1.rsp
 ../bin/compile.exe: CMakeFiles/compile.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=D:\CodeField\cpp\d3d\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable ..\bin\compile.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=D:\CodeField\cpp\d3d\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable ..\bin\compile.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\compile.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
