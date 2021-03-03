@@ -69,37 +69,51 @@ LRESULT CALLBACK HandleMsgSetup(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lPara
 }
 class move
 {
-public:
-    virtual void carry(){};
-};
-class mForward : move
-{
-    keyType key{"00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000001100000000000000000"};
+private:
+    void forward()
+    {
+        std::cout << "you are moving forward" << std::endl;
+    }
+    void back()
+    {
+        std::cout << "you are moving back" << std::endl;
+    }
+    void left()
+    {
+        std::cout << "you are moving left" << std::endl;
+    }
+    void right()
+    {
+        std::cout << "you are moving right" << std::endl;
+    }
 
 public:
-    mForward(keyType &k) : key(k)
+    virtual void carry(keyType key)
     {
-    }
-    mForward(){};
-    void carry(keyType Key)
-    {
-        if ((Key & key) == Key) //if key&tk == tk shows that the target keys are pressed
+        static keyMap map;
+        if (key == map.getKey("W"))
         {
-            std::cout << "carrying move forward" << std::endl;
+            forward();
         }
-    }
+        if (key == map.getKey("A"))
+        {
+            left();
+        }
+        if (key == map.getKey("S"))
+        {
+            back();
+        }
+        if (key == map.getKey("D"))
+        {
+            right();
+        }
+    };
 };
 void kbdHandler(keyType &key)
 {
     static keyType preKey;
-    static mForward m;
-
-    if (key[VK_CONTROL] && key['A'] && key[VK_MENU])
-    {
-        m.carry(key);
-        std::cout << "Ctrl+Alt+A was pressed" << std::endl;
-    }
-
+    static move m;
+    m.carry(key);
     preKey = key;
 }
 std::optional<int> window::processer()
@@ -115,4 +129,46 @@ std::optional<int> window::processer()
     }
 
     return {};
+}
+winClass::winClass(HINSTANCE h, char *name, char *icon) : hInstance(h), className(name), ICON(icon)
+{
+    WNDCLASSEX wc = {0};
+    wc.cbSize = sizeof(wc);
+    wc.hInstance = hInstance;
+    wc.lpszClassName = className.c_str();
+    wc.style = CS_OWNDC;
+    HICON hIconSm = (HICON)::LoadImage(
+        hInstance,
+        TEXT(ICON.c_str()),
+        IMAGE_ICON,
+        16, 16,
+        LR_DEFAULTCOLOR | LR_CREATEDIBSECTION | LR_LOADFROMFILE);
+    HICON hIcon = (HICON)::LoadImage(
+        hInstance,
+        TEXT(ICON.c_str()),
+        IMAGE_ICON,
+        32, 32,
+        LR_DEFAULTCOLOR | LR_CREATEDIBSECTION | LR_LOADFROMFILE);
+    wc.hIconSm = hIconSm;
+    wc.hIcon = hIcon;
+    wc.lpfnWndProc = HandleMsgSetup;
+    RegisterClassEx(&wc);
+}
+void window::doFrame()
+{
+    for (auto &i : ts)
+    {
+        std::stringstream ss;
+        ss << i->peek();
+        // SetWindowText(i->hWnd,_T(ss.str().c_str()));
+    }
+}
+void window::createWindow(const winClass *wc, unsigned X, unsigned Y, unsigned wh, unsigned ht, char *name)
+{
+    HWND hWnd = CreateWindowEx(0, _T(wc->className.c_str()), name,
+                               WS_CAPTION | WS_SYSMENU | WS_MINIMIZEBOX | WS_MAXIMIZEBOX,
+                               X, Y, wh, ht, nullptr, nullptr, hInstance, this);
+    h.push_back(hWnd);
+    ts.push_back(new timer{hWnd});
+    ShowWindow(hWnd, SW_SHOW);
 }

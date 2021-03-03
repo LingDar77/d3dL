@@ -7,13 +7,15 @@ class window;
 class timer
 {
     friend class window;
+
+private:
     std::chrono::steady_clock::time_point last;
     HWND hWnd;
 
 public:
     ~timer()
     {
-        std::cout<<hWnd<<"destroyed"<<std::endl;
+        std::cout << "timer：" << this << " destroyed" << std::endl;
     }
     timer(HWND h) : last(last = std::chrono::steady_clock::now()), hWnd(h)
     {

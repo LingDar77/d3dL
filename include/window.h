@@ -6,7 +6,7 @@
 #include <string>
 #include "timer.h"
 #include <optional>
-typedef std::bitset<254> keyType; //all keys provided only have 254 kinds, every set express its state
+#include "keyMap.h"
 class window;
 LRESULT CALLBACK HandleMsgSetup(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam) noexcept;
 LRESULT CALLBACK HandleMsgThunk(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam) noexcept;
@@ -84,30 +84,7 @@ private:
     std::string className, ICON;
 
 public:
-    winClass(HINSTANCE h, char *name, char *icon) : hInstance(h), className(name), ICON(icon)
-    {
-        WNDCLASSEX wc = {0};
-        wc.cbSize = sizeof(wc);
-        wc.hInstance = hInstance;
-        wc.lpszClassName = className.c_str();
-        wc.style = CS_OWNDC;
-        HICON hIconSm = (HICON)::LoadImage(
-            hInstance,
-            TEXT(ICON.c_str()),
-            IMAGE_ICON,
-            16, 16,
-            LR_DEFAULTCOLOR | LR_CREATEDIBSECTION | LR_LOADFROMFILE);
-        HICON hIcon = (HICON)::LoadImage(
-            hInstance,
-            TEXT(ICON.c_str()),
-            IMAGE_ICON,
-            32, 32,
-            LR_DEFAULTCOLOR | LR_CREATEDIBSECTION | LR_LOADFROMFILE);
-        wc.hIconSm = hIconSm;
-        wc.hIcon = hIcon;
-        wc.lpfnWndProc = HandleMsgSetup;
-        RegisterClassEx(&wc);
-    };
+    winClass(HINSTANCE h, char *name, char *icon);
     ~winClass() noexcept
     {
         UnregisterClass(_T(className.c_str()), hInstance);
@@ -126,15 +103,7 @@ private:
     interact kbd;
 
 public:
-    void doFrame()
-    {
-        for (auto &i : ts)
-        {
-            std::stringstream ss;
-            ss<<i->peek();
-            SetWindowText(i->hWnd,_T(ss.str().c_str()));
-        }
-    }
+    void doFrame();
     std::optional<int> processer();
     HWND getHwnd(size_t t)
     {
@@ -151,22 +120,14 @@ public:
                 return i;
         return i;
     }
-    void createWindow(const winClass *wc, unsigned X, unsigned Y, unsigned wh, unsigned ht, char *name)
-    {
-        HWND hWnd = CreateWindowEx(0, _T(wc->className.c_str()), name,
-                                   WS_CAPTION | WS_SYSMENU | WS_MINIMIZEBOX | WS_MAXIMIZEBOX,
-                                   X, Y, wh, ht, nullptr, nullptr, hInstance, this);
-        h.push_back(hWnd);
-        ts.push_back(new timer{hWnd});
-        ShowWindow(hWnd, SW_SHOW);
-    }
+    void createWindow(const winClass *wc, unsigned X, unsigned Y, unsigned wh, unsigned ht, char *name);
     window(HINSTANCE h) : hInstance(h){};
     ~window() noexcept
     {
         for (auto &i : ts)
-            delete i;
+            delete i; //destroy timers
         for (auto &i : h)
-            DestroyWindow(i);
+            DestroyWindow(i); //destroy windows
     }
 };
 

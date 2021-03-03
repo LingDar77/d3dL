@@ -1,12 +1,12 @@
 [
 {
   "directory": "D:/CodeField/cpp/d3d/build",
-  "command": "g++  @CMakeFiles/compile.dir/includes_CXX.rsp -O3 -DNDEBUG -std=c++2a -o CMakeFiles\\compile.dir\\src\\winMain.cpp.obj -c D:\\CodeField\\cpp\\d3d\\src\\winMain.cpp",
+  "command": "g++  @CMakeFiles/compile.dir/includes_CXX.rsp -O2 -g -DNDEBUG -std=c++2a -o CMakeFiles\\compile.dir\\src\\winMain.cpp.obj -c D:\\CodeField\\cpp\\d3d\\src\\winMain.cpp",
   "file": "D:/CodeField/cpp/d3d/src/winMain.cpp"
 },
 {
   "directory": "D:/CodeField/cpp/d3d/build",
-  "command": "g++  @CMakeFiles/compile.dir/includes_CXX.rsp -O3 -DNDEBUG -std=c++2a -o CMakeFiles\\compile.dir\\src\\window.cpp.obj -c D:\\CodeField\\cpp\\d3d\\src\\window.cpp",
+  "command": "g++  @CMakeFiles/compile.dir/includes_CXX.rsp -O2 -g -DNDEBUG -std=c++2a -o CMakeFiles\\compile.dir\\src\\window.cpp.obj -c D:\\CodeField\\cpp\\d3d\\src\\window.cpp",
   "file": "D:/CodeField/cpp/d3d/src/window.cpp"
 }
 ]
